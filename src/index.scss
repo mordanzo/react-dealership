@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  font-family: system-ui;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+div, p, input, button,
+form, span, a, ul, li {
+    box-sizing: border-box;
+    outline: none;
+}
+
+.container {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #2C2C2C;
+  height: 70px;
+}
+
+.headermiddle ul {
+  li {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 0 15px;
+  }
+  a {
+    color: #fff;
+    &:hover {
+      color: #EC6113;
+      transition: 0.3s ease-out;
+    }
+  }
+}
+
+.headerright button {
+  border: 0;
+}
+
+.log {
+  width: 123px;
+  height: 31px;
+  cursor: pointer;
+  background-color: #A3A3A3;
+  transform: skewX(-45deg);
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  &:hover {
+    background-color: #c3c3c3;
+  }
+  span {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #232323;
+
+    padding: 0 30%;
+    transform: skewX(45deg);
+    &:hover{
+      transition: 0.7s ease-out;
+      color: #232323;
+    }
+  }
+}
+
+.reg {
+  width: 170px;
+  height: 31px;
+  cursor: pointer;
+  background-color: #EC6113;
+  transform: skewX(-45deg);
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  &:hover {
+    background-color: #ff4900;
+  }
+  span {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #232323;
+
+    padding: 0 22%;
+    transform: skewX(45deg);
+    &:hover{
+      transition: 0.7s ease-out;
+    }
+  }
+}
+
