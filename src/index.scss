@@ -1,19 +1,8 @@
+@import "./nullstyle.scss";
+
 body {
   margin: 0;
-  font-family: system-ui;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-div, p, input, button,
-form, span, a, ul, li {
-    box-sizing: border-box;
-    outline: none;
+  background-color: #2C2C2C;
 }
 
 .container {
@@ -26,27 +15,31 @@ header {
   height: 70px;
 }
 
-.headermiddle ul {
-  li {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    padding: 0 15px;
-  }
-  a {
-    color: #fff;
-    &:hover {
-      color: #EC6113;
-      transition: 0.3s ease-out;
+.headermiddle {
+  width: 50%;
+  ul {
+    li {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      padding: 0 15px;
+    }
+    a {
+      color: #fff;
+      &:hover {
+        color: #EC6113;
+        transition: 0.3s ease-out;
+      }
     }
   }
 }
 
-.headerright button {
-  border: 0;
-}
-
-.log {
+.headerright{
+  width: 25%;
+  button {
+    border: 0;
+  }
+  .log {
   width: 123px;
   height: 31px;
   cursor: pointer;
@@ -70,9 +63,8 @@ header {
       color: #232323;
     }
   }
-}
-
-.reg {
+  }
+  .reg {
   width: 170px;
   height: 31px;
   cursor: pointer;
@@ -95,5 +87,91 @@ header {
       transition: 0.7s ease-out;
     }
   }
+  }
+}
+
+/*Первая линия разделения*/
+
+.uplineshadow {
+  filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.75));
+}
+
+.upline {
+  width: 100%;
+  height: 80px;
+  background-color: #EC6113;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 0% 100%);
+}
+
+/*Блок специальных предложений*/
+
+.special-offers {
+  height: 530px;
+  h1 {
+    font-size: 40px;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+    font-family: 'Oswald', sans-serif;
+  }
+}
+
+.card {
+  font-family: 'Montserrat', sans-serif;
+  height: 380px;
+  width: 280px;
+  background-color: #fff;
+  color: #000;
+  h3 {
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 0;
+  }
+  img {
+    display: block;
+    margin: 15px auto;
+    width: 240px;
+  }
+}
+
+.brief-description{
+  font-size: 12px;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.mini-price{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.bg-price{
+  width: 120px;
+  height: 30px;
+  background: rgba(236, 97, 19, 0.8);
+  border-radius: 5px;
+  padding-top: 8px;
+  display: flex;
+  justify-content: center;
+}
+
+.price-byn{
+  display: table-cell;
+  font-weight: bold;
+  height: 30px;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.price-usd{
+  font-weight: bold;
+  font-size: 12px;
+  padding-top: 15px;
+  padding-left: 5px;
 }
 
