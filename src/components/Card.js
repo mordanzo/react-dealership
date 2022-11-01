@@ -1,20 +1,24 @@
-function Card() {
+function Card(props) {
     return (
-        <div class="card">
-            <h3>Название автомобиля</h3>
-            <img src="/img/noimage.jpg" alt="" />
-            <div class="brief-description">
-                <p>Год, тип кузова</p>
-                <p>Дизель, 2.0, МКПП (АКПП)</p>
-                <p>Пробег 999999 км</p>
+        <div className="card">
+            <div className="box">
+                <img src={props.imageUrl} alt="Фотография машины" />
             </div>
-            <div class="mini-price">
-                <div class="bg-price">
-                    <div class="price-byn">
+            <div className="description">
+                <div>
+                    <h3>{props.title}</h3>
+                    <p>{props.year}, {props.vehicleType}</p>
+                    <p>{props.engine}, {props.transmission}</p>
+                    <p>Пробег {props.milage} км</p>
+                </div>
+            </div>
+            <div className="d-flex justify-center">
+                <div className="bg-price">
+                    <div className="price-byn">
                         <span id="price">99 999 BYN</span>
                     </div>
                 </div>
-                <div class="price-usd"><span>≈</span>
+                <div className="price-usd"><span>≈</span>
                     <span id="usd-price">39 431 USD</span>
                 </div>
             </div>
