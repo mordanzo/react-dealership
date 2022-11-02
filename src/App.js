@@ -47,6 +47,7 @@ function App() {
                   engine="Дизель 2.0"
                   transmission="МКПП"
                   milage={125000}
+                  onClick={() => console.log(obj)}
                 />
               ))}
             </div>
