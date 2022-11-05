@@ -1,4 +1,4 @@
-function Header() {
+function Header(props) {
     return (
         <div className="container">
             <header className="d-flex justify-between align-center">
@@ -14,13 +14,18 @@ function Header() {
                             <li><a href="#">О НАС</a></li>
                         </ul>
                     </div>
-                    <div className="headerright">
+                    <img className="favoriteMark cu-p" width={32} 
+                    src="/img/favoriteMark.png" onClick={props.onClickFavoriteMark}/>
+                    <div className="headerright d-flex justify-between">
                         <button className="log align-center d-if">
                             <span>Войти</span>
                         </button>
                         <button className="reg align-center d-if">
                             <span>Регистрация</span>
                         </button>
+                        <img className="profile__avatar" 
+                             width={32} 
+                             src="/img/profile-avatar.svg"/>
                     </div>
             </header>
         </div>

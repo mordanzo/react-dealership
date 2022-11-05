@@ -43,7 +43,6 @@ header {
 }
 
 .headerright {
-  width: 320px;
 
   .log {
     margin-right: 10px;
@@ -103,6 +102,10 @@ header {
         transition: 0.7s ease-out;
       }
     }
+  }
+
+  .profile__avatar {
+    display: none;
   }
 }
 

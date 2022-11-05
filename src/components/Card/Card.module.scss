@@ -1,69 +1,79 @@
 .card {
-    font-family: 'Montserrat', sans-serif;
-    height: 380px;
-    width: 280px;
-    background-color: #fff;
-    color: #000;
-    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-    cursor: pointer;
-  
-    &:hover {
-      box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.5);
-      transform: translateY(-3px);
-  
-      .bg__price {
-        background: rgba(225, 84, 2, 0.8);
-      }
-    }
-  
-    .box {
-      height: 150px;
-      overflow: hidden;
-  
-      img {
-        object-fit: cover;
-        width: 100%;
-      }
-    }
-  
-    .description {
-      padding: 30px;
-      h3 {
-        color: #000;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: bold;
-        font-size: 18px;
-        margin-bottom: 20px;
-      }
-  
-      p {
-        padding: 5px;
-        font-size: 13px;
-      }
-    }
-  
-    .bg__price {
-      width: 130px;
-      height: 30px;
-      background: rgba(236, 97, 19, 0.8);
-      border-radius: 5px;
-      padding-top: 8px;
-      display: flex;
-      justify-content: center;
-    }
-  
-    .price__byn {
-      display: table-cell;
-      font-weight: bold;
-      height: 30px;
-      vertical-align: middle;
-      font-size: 14px;
-    }
-  
-    .price__usd {
-      font-weight: bold;
-      font-size: 12px;
-      padding-top: 15px;
-      padding-left: 5px;
-    }
+  font-family: 'Montserrat', sans-serif;
+  height: 380px;
+  width: 280px;
+  background-color: #fff;
+  color: #000;
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-3px);
   }
+}
+
+.favorite {
+  width: 280px;
+  position: absolute;
+  img {
+    margin: 5px;
+    float: right;
+  }
+}
+
+.box {
+  height: 150px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
+
+.description {
+  padding: 30px;
+
+  h3 {
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    padding: 5px;
+    font-size: 13px;
+  }
+}
+
+.bg__price {
+  width: 130px;
+  height: 30px;
+  background: rgba(236, 97, 19, 0.8);
+  border-radius: 5px;
+  padding-top: 8px;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(225, 84, 2, 0.8);
+    
+  }
+}
+
+.price__byn {
+  display: table-cell;
+  font-weight: bold;
+  height: 30px;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.price__usd {
+  font-weight: bold;
+  font-size: 12px;
+  padding-top: 15px;
+  padding-left: 5px;
+}

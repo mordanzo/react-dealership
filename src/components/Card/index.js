@@ -1,9 +1,21 @@
 import styles from './Card.module.scss'
+import React from 'react';
 
-function Card(props) { 
-    console.log(props);
+function Card(props) {
+    const [isAdded, setIsAdded] = React.useState(true);
+    const onClickFavorite = () => {
+        setIsAdded(!isAdded);
+    }
+
     return (
         <div className={styles.card} onClick={props.onClick}>
+            <div className={styles.favorite}>   
+                <img 
+                    width={32}  
+                    src={isAdded ? '/img/star-unfavorite.svg' : '/img/star-favorite.svg'}
+                    onClick={onClickFavorite}    
+                /> 
+            </div>
             <div className={styles.box}>
                 <img src={props.imageUrl} alt="Фотография машины" />
             </div>
@@ -18,11 +30,11 @@ function Card(props) {
             <div className="d-flex justify-center">
                 <div className={styles.bg__price}>
                     <div className={styles.price__byn}>
-                        <span>99 999 BYN</span>
+                        <span>{props.price} BYN</span>
                     </div>
                 </div>
                 <div className={styles.price__usd}><span>≈</span>
-                    <span>39 431 USD</span>
+                    <span>{Math.round(props.price*2.52)} USD</span>
                 </div>
             </div>
         </div>
