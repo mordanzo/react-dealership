@@ -20,7 +20,7 @@
   transition: transform 0.3s ease-out;
 }
 
-.drawer__header {
+.drawerheader {
   display: flex;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
@@ -34,10 +34,21 @@
 }
 
 .favoriteItem {
-  width: 360px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  margin-bottom: 20px;
+  .box {
+    width: 100px;
+    overflow: hidden;
+    margin-right: 15px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: 1;
+    }
+  }
 
   p {
     margin: 5px 0;

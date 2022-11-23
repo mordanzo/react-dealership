@@ -1,69 +1,61 @@
 import React from 'react';
-import Card from './components/Card'
-import Header from './components/Header'
-import Drawer from './components/Drawer'
+import axios from 'axios';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Home from './pages/Home';
+import NotFound from './pages/NotFound';
+import Catalog from './pages/Catalog';
 
-const arr = [
-  { 
-    title: 'BMW M5 Competition', 
-    year: '2006',
-    imageUrl: '/img/1.jpg',
-    price: 99999,
-  },
-  { 
-    title: 'Ford Manteo', 
-    year: '2001',
-    imageUrl: '/img/2.jpg',
-    price: 82999,
-  },
-  { 
-    title: 'Audi Q8', 
-    year: '2012',
-    imageUrl: '/img/3.jpg',
-    price: 76899,
-  },
-  { 
-    title: 'Nissan Qashkai', 
-    year: '2019',
-    imageUrl: '/img/4.jpg',
-    price: 4899,
-  },
-];
+import 'macro-css';
+import './scss/app.scss';
 
 function App() {
+  const [items, setItems] = React.useState([]);
+  const [favoritesItems, setFavoritesItems] = React.useState([]);
   const [favoriteOpened, setFavoriteOpened] = React.useState(false);
 
+  React.useEffect(() => {
+    // Получаем таблицу items с backend
+    axios.get('https://636786edf5f549f052d70d3e.mockapi.io/items').then((res) => {
+      setItems(res.data);
+    });
+    // Получаем таблицу favorites с backend
+    axios.get('https://636786edf5f549f052d70d3e.mockapi.io/favorites').then((res) => {
+      setFavoritesItems(res.data);
+    });
+  }, []);
+
+  //Добавляем объект в массив на backend
+  const onAddToFavorites = (obj) => {
+    axios.post('https://636786edf5f549f052d70d3e.mockapi.io/favorites', obj);
+    setFavoritesItems((prev) => [...prev, obj]);
+  };
+
+  const onRemoveFavorites = (id) => {
+    console.log(id);
+    axios.delete(`https://636786edf5f549f052d70d3e.mockapi.io/favorites/${id}`);
+    setFavoritesItems((prev) => prev.filter((item) => item.id !== id));
+  };
   return (
     <div className="wrapper">
-      {favoriteOpened && <Drawer onClose = {() => setFavoriteOpened(false)}/>}
-      <Header onClickFavoriteMark = {() => setFavoriteOpened(true)}/>
-      <div className="main">
-        <div className="slider">
-        </div>
-        <div className="uplineshadow">
-          <div className="upline"></div>
-        </div>
-        <div className="container">
-          <div className="special-offers">
-            <h1>СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ</h1>
-            <div className='card-items d-flex justify-between'>
-              {arr.map((obj) => (
-                <Card
-                  title={obj.title}
-                  imageUrl={obj.imageUrl}
-                  year={obj.year}
-                  vehicleType="Седан"
-                  engine="Дизель 2.0"
-                  transmission="МКПП"
-                  milage={125000}
-                  price={obj.price}
-                  onClick={() => console.log(obj)}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      <Header onClickFavoriteMark={() => setFavoriteOpened(true)} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              items={items}
+              onClose={() => setFavoriteOpened(false)}
+              favoritesItems={favoritesItems}
+              favoriteOpened={favoriteOpened}
+              onAddToFavorites={onAddToFavorites}
+              onRemoveFavorites={onRemoveFavorites}
+            />
+          }
+        />
+        <Route path="/not-found" element={<NotFound />} />
+        <Route path="/catalog" element={<Catalog items={items} />} />
+      </Routes>
     </div>
   );
 }

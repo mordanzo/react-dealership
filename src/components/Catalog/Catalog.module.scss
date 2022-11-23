@@ -1,0 +1,17 @@
+@import "/src/scss/libs/variables.scss";
+
+.container {
+  width: $container-width;
+  margin: 0 auto;
+}
+
+.wrapper {
+  margin: 50px 90px 20px 90px;
+  h1 {
+    font: 500 36px 'Oswald';
+    margin-bottom: 50px;
+  }
+  li {
+    display: inline;
+  }
+}
